@@ -9,6 +9,7 @@ var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
 var app_component_1 = require("./app.component");
 var games_library_component_1 = require("./games-library/games-library.component");
+var games_library_thumbnail_component_1 = require("./games-library/games-library-thumbnail.component");
 var games_library_service_1 = require("./games-library/games-library.service");
 var game_detail_component_1 = require("./game-detail/game-detail.component");
 var AppModule = (function () {
@@ -21,6 +22,7 @@ AppModule = __decorate([
         imports: [platform_browser_1.BrowserModule],
         declarations: [app_component_1.AppComponent,
             games_library_component_1.GamesLibraryComponent,
+            games_library_thumbnail_component_1.GamesLibraryThumbnailComponent,
             game_detail_component_1.GameDetailComponent],
         bootstrap: [app_component_1.AppComponent],
         providers: [games_library_service_1.GameLibraryService]
