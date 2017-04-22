@@ -4,6 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 
 import { GamesLibraryComponent } from './games-library/games-library.component';
+import { GameLibraryService } from './games-library/games-library.service';
+
 import { GameDetailComponent } from './game-detail/game-detail.component';
 
 @NgModule({
@@ -11,6 +13,7 @@ import { GameDetailComponent } from './game-detail/game-detail.component';
   declarations: [AppComponent,
     GamesLibraryComponent,
     GameDetailComponent],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  providers: [GameLibraryService]
 })
 export class AppModule { }
