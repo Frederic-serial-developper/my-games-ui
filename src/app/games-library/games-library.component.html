@@ -1,0 +1,9 @@
+<h1>My Games Library</h1>
+
+<ul>
+    <li *ngFor="let game of games" (click)="onSelect(game)">
+        {{game.name}}
+    </li>
+</ul>
+
+<game-detail [game]="selectedGame"></game-detail>
