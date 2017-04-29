@@ -1,8 +1,9 @@
 <h1>My Games Library</h1>
 
-<div *ngFor="let game of games" (click)="onSelect(game)">
-    <games-library-thumbnail [game]="game"></games-library-thumbnail>
+<div class="library-container">
+    <div *ngFor="let game of games" (click)="onSelect(game)">
+        <games-library-thumbnail [game]="game"></games-library-thumbnail>
+    </div>
 </div>
-
 
 <game-detail [game]="selectedGame"></game-detail>

@@ -1,6 +1,11 @@
-<div class="thumbnail">
-    <h3>{{game.name}}</h3>
-    <div>id : {{game.id}}</div>
-    <ngb-rating [(rate)]="game.rank"></ngb-rating>
-    <div>source : {{game.source}}</div>
+<div class="col-sm-6 col-md-4">
+    <div class="library-thumbnail">
+        <img [src]="game.image" height="200px" width="200px">
+        <div class="caption">
+            <!--
+            <h3>{{game.name}}</h3>
+            -->
+            <ngb-rating [(rate)]="game.rank"></ngb-rating>
+        </div>
+    </div>
 </div>

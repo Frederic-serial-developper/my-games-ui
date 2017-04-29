@@ -3,4 +3,5 @@ export class Game {
   name: string;
   source: string;
   rank: number;
+  image: string;
 }
