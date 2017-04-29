@@ -22,7 +22,7 @@ __decorate([
 GameDetailComponent = __decorate([
     core_1.Component({
         selector: 'game-detail',
-        templateUrl: 'app/game-detail/game-detail.component.html'
+        templateUrl: 'app/games-library/game-detail.component.html'
     })
 ], GameDetailComponent);
 exports.GameDetailComponent = GameDetailComponent;

@@ -15,7 +15,7 @@ var app_component_1 = require("./app.component");
 // app components & services
 var games_library_component_1 = require("./games-library/games-library.component");
 var games_library_thumbnail_component_1 = require("./games-library/games-library-thumbnail.component");
-var game_detail_component_1 = require("./game-detail/game-detail.component");
+var game_detail_component_1 = require("./games-library/game-detail.component");
 var games_library_service_1 = require("./games-library/games-library.service");
 var AppModule = (function () {
     function AppModule() {

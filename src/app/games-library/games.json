@@ -4,49 +4,127 @@
         "name": "Abyss",
         "rank": 7,
         "source": "boardgamegeek",
-        "image": "https://cf.geekdo-images.com/images/pic1965255_md.jpg"
+        "image": "https://cf.geekdo-images.com/images/pic1965255_md.jpg",
+        "plays": [
+            {
+                "id": 1,
+                "date": "2017-05-31"
+            },
+            {
+                "id": 2,
+                "date": "2017-05-31"
+            },
+            {
+                "id": 3,
+                "date": "2017-05-31"
+            },
+            {
+                "id": 4,
+                "date": "2017-05-31"
+            },
+            {
+                "id": 5,
+                "date": "2017-05-31"
+            }
+        ]
     },
     {
         "id": 2,
         "name": "Scythe",
         "rank": 5,
         "source": "boardgamegeek",
-        "image": "https://cf.geekdo-images.com/images/pic3163924_md.jpg"
+        "image": "https://cf.geekdo-images.com/images/pic3163924_md.jpg",
+        "plays": [
+            {
+                "id": 1,
+                "date": "2017-05-31"
+            }
+        ]
     },
     {
         "id": 3,
         "name": "Mr. Jack",
         "rank": 5,
         "source": "boardgamegeek",
-        "image": "https://cf.geekdo-images.com/images/pic3066125_md.jpg"
+        "image": "https://cf.geekdo-images.com/images/pic3066125_md.jpg",
+        "plays": [
+            {
+                "id": 1,
+                "date": "2017-05-31"
+            },
+            {
+                "id": 2,
+                "date": "2017-05-31"
+            }
+        ]
     },
     {
         "id": 4,
         "name": "Cyclades",
         "rank": 4,
         "source": "boardgamegeek",
-        "image": "https://cf.geekdo-images.com/images/pic584779_md.jpg"
+        "image": "https://cf.geekdo-images.com/images/pic584779_md.jpg",
+        "plays": [
+            {
+                "id": 1,
+                "date": "2017-05-31"
+            },
+            {
+                "id": 2,
+                "date": "2017-05-31"
+            },
+            {
+                "id": 3,
+                "date": "2017-05-31"
+            }
+        ]
     },
     {
         "id": 5,
         "name": "Sbires",
         "rank": 3,
         "source": "boardgamegeek",
-        "image": "https://cf.geekdo-images.com/images/pic3286351.jpg"
+        "image": "https://cf.geekdo-images.com/images/pic3286351.jpg",
+        "plays": [
+            {
+                "id": 1,
+                "date": "2017-05-31"
+            },
+            {
+                "id": 2,
+                "date": "2017-05-31"
+            },
+            {
+                "id": 3,
+                "date": "2017-05-31"
+            }
+        ]
     },
     {
         "id": 6,
         "name": "Mare Nostrum : Empires",
         "rank": 3,
         "source": "boardgamegeek",
-        "image": "https://cf.geekdo-images.com/images/pic2648963_md.jpg"
+        "image": "https://cf.geekdo-images.com/images/pic2648963_md.jpg",
+        "plays": [
+            {
+                "id": 1,
+                "date": "2017-05-31"
+            }
+        ]
     },
     {
         "id": 7,
         "name": "Mafia de Cuba",
         "rank": 6,
         "source": "boardgamegeek",
-        "image": "https://cf.geekdo-images.com/images/pic2519675_md.jpg"
+        "image": "https://cf.geekdo-images.com/images/pic2519675_md.jpg",
+        "plays": [
+            {
+                "id": 1,
+                "date": "2017-05-31"
+            }
+        ]
     },
     {
         "id": 8,

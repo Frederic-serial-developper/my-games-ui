@@ -13,6 +13,7 @@ export class GamesLibraryComponent implements OnInit {
 
   rankOrderAsc: number;
   nameOrderAsc: number;
+  playsOrderAsc: number;
 
   selectedGame: Game;
 
@@ -22,6 +23,7 @@ export class GamesLibraryComponent implements OnInit {
   ngOnInit(): void {
     this.rankOrderAsc = 1;
     this.nameOrderAsc = 1;
+    this.playsOrderAsc = 1;
     this.gameLibrayService.getGames().subscribe(result => this.games = result);
   }
 
@@ -43,5 +45,14 @@ export class GamesLibraryComponent implements OnInit {
   sortByRank(): void {
     this.games.sort((g1,g2)=> (g2.rank - g1.rank) * this.rankOrderAsc);
     this.rankOrderAsc = this.rankOrderAsc * -1;
+  }
+
+  /*
+  * sort the game list by plays. Revert order each time it is called. On first call, games will be desc sorted.
+  */
+  sortByPlays(): void {
+    this.games.sort((g1,g2)=> (
+      ((g2.plays === undefined ? 0 : g2.plays.length) - (g1.plays === undefined ? 0 : g1.plays.length)) * this.playsOrderAsc));
+    this.playsOrderAsc = this.playsOrderAsc * -1;
   }
 }

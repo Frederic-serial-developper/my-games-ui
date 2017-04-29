@@ -1,7 +1,9 @@
 <div class="btn-group library-btn" data-toggle="buttons">
     <button (click)="sortByName()">Sort by name</button>
     <button (click)="sortByRank()">Sort by rank</button>
+    <button (click)="sortByPlays()">Sort by plays</button>
 </div>
+
 <div class="library-container">
     <div *ngFor="let game of games" (click)="onSelect(game)">
         <games-library-thumbnail [game]="game"></games-library-thumbnail>

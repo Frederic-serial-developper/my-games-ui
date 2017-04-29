@@ -11,7 +11,7 @@ import { AppComponent } from './app.component';
 // app components & services
 import { GamesLibraryComponent } from './games-library/games-library.component';
 import { GamesLibraryThumbnailComponent } from './games-library/games-library-thumbnail.component';
-import { GameDetailComponent } from './game-detail/game-detail.component';
+import { GameDetailComponent } from './games-library/game-detail.component';
 import { GameLibraryService } from './games-library/games-library.service';
 
 @NgModule({

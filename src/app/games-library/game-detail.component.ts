@@ -4,7 +4,7 @@ import { Game } from '../model/game';
 
 @Component({
   selector: 'game-detail',
-  templateUrl: 'app/game-detail/game-detail.component.html'
+  templateUrl: 'app/games-library/game-detail.component.html'
 })
 
 export class GameDetailComponent {

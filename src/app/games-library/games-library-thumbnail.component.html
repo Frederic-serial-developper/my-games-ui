@@ -3,10 +3,12 @@
         <img [src]="game.image" height="200px" width="200px" (click)="onClickImage()">
         <div class="caption">
             <ngb-rating [(rate)]="game.rank"></ngb-rating>
+            <span *ngIf="game.plays" class="badge badge-default">{{game.plays.length}}</span>
+            <span *ngIf="!game.plays" class="badge badge-default">0</span>
         </div>
     </div>
 
     <div *ngIf="displayDetails">
-        <game-detail [game]="game"></game-detail><game
+        <game-detail [game]="game"></game-detail>
     </div>
 </div>
