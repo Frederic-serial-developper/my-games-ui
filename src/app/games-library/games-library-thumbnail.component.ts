@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 import { Game } from '../model/game';
 
@@ -6,6 +6,16 @@ import { Game } from '../model/game';
   selector: 'games-library-thumbnail',
   templateUrl: 'app/games-library/games-library-thumbnail.component.html'
 })
-export class GamesLibraryThumbnailComponent {
+export class GamesLibraryThumbnailComponent implements OnInit {
   @Input() game: Game;
+
+  displayDetails: boolean;
+
+   ngOnInit(): void {
+    this.displayDetails = false;
+  }
+
+  onClickImage(): void {
+    this.displayDetails = !this.displayDetails;
+  }
 }

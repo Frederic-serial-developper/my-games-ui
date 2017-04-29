@@ -1,4 +1,4 @@
-<div class="btn-group" data-toggle="buttons">
+<div class="btn-group library-btn" data-toggle="buttons">
     <button (click)="sortByName()">Sort by name</button>
     <button (click)="sortByRank()">Sort by rank</button>
 </div>
@@ -7,5 +7,3 @@
         <games-library-thumbnail [game]="game"></games-library-thumbnail>
     </div>
 </div>
-
-<game-detail [game]="selectedGame"></game-detail>

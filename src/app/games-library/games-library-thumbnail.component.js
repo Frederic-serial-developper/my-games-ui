@@ -13,6 +13,12 @@ var game_1 = require("../model/game");
 var GamesLibraryThumbnailComponent = (function () {
     function GamesLibraryThumbnailComponent() {
     }
+    GamesLibraryThumbnailComponent.prototype.ngOnInit = function () {
+        this.displayDetails = false;
+    };
+    GamesLibraryThumbnailComponent.prototype.onClickImage = function () {
+        this.displayDetails = !this.displayDetails;
+    };
     return GamesLibraryThumbnailComponent;
 }());
 __decorate([

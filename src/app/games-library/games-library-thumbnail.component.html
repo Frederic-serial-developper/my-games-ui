@@ -1,11 +1,12 @@
 <div class="col-sm-6 col-md-4">
     <div class="library-thumbnail">
-        <img [src]="game.image" height="200px" width="200px">
+        <img [src]="game.image" height="200px" width="200px" (click)="onClickImage()">
         <div class="caption">
-            <!--
-            <h3>{{game.name}}</h3>
-            -->
             <ngb-rating [(rate)]="game.rank"></ngb-rating>
         </div>
+    </div>
+
+    <div *ngIf="displayDetails">
+        <game-detail [game]="game"></game-detail><game
     </div>
 </div>
