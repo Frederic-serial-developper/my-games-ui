@@ -22,7 +22,7 @@ export class GamesLibraryComponent implements OnInit {
   ngOnInit(): void {
     this.rankOrderAsc = 1;
     this.nameOrderAsc = 1;
-    this.gameLibrayService.getGamesSlowly().then(games => this.games = games);
+    this.gameLibrayService.getGames().subscribe(result => this.games = result);
   }
 
   onSelect(game: Game): void {

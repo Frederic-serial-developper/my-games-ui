@@ -18,7 +18,7 @@ var GamesLibraryComponent = (function () {
         var _this = this;
         this.rankOrderAsc = 1;
         this.nameOrderAsc = 1;
-        this.gameLibrayService.getGamesSlowly().then(function (games) { return _this.games = games; });
+        this.gameLibrayService.getGames().subscribe(function (result) { return _this.games = result; });
     };
     GamesLibraryComponent.prototype.onSelect = function (game) {
         this.selectedGame = game;
