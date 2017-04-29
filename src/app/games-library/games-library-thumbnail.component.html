@@ -1,6 +1,6 @@
 <div class="thumbnail">
     <h3>{{game.name}}</h3>
     <div>id : {{game.id}}</div>
-    <div>rank : {{game.rank}}</div>
+    <ngb-rating [(rate)]="game.rank"></ngb-rating>
     <div>source : {{game.source}}</div>
 </div>

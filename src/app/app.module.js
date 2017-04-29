@@ -7,11 +7,15 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
+// ng bootstrap
+var ng_bootstrap_1 = require("@ng-bootstrap/ng-bootstrap");
+// app
 var app_component_1 = require("./app.component");
+// app components & services
 var games_library_component_1 = require("./games-library/games-library.component");
 var games_library_thumbnail_component_1 = require("./games-library/games-library-thumbnail.component");
-var games_library_service_1 = require("./games-library/games-library.service");
 var game_detail_component_1 = require("./game-detail/game-detail.component");
+var games_library_service_1 = require("./games-library/games-library.service");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -19,7 +23,8 @@ var AppModule = (function () {
 }());
 AppModule = __decorate([
     core_1.NgModule({
-        imports: [platform_browser_1.BrowserModule],
+        imports: [platform_browser_1.BrowserModule,
+            ng_bootstrap_1.NgbModule.forRoot()],
         declarations: [app_component_1.AppComponent,
             games_library_component_1.GamesLibraryComponent,
             games_library_thumbnail_component_1.GamesLibraryThumbnailComponent,
