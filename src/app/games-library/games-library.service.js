@@ -15,8 +15,13 @@ var GameLibraryService = (function () {
     function GameLibraryService(http) {
         this.http = http;
     }
-    GameLibraryService.prototype.getGames = function () {
+    GameLibraryService.prototype.getGamesFromFile = function () {
         return this.http.get("app/games-library/games.json").map(function (response) {
+            return response.json();
+        }).catch(this.handleError);
+    };
+    GameLibraryService.prototype.getGames = function () {
+        return this.http.get("http://localhost:8080/my-games-services/bgg/collection/fredericdib").map(function (response) {
             return response.json();
         }).catch(this.handleError);
     };

@@ -45,7 +45,7 @@ var GamesLibraryComponent = (function () {
     */
     GamesLibraryComponent.prototype.sortByPlays = function () {
         var _this = this;
-        this.games.sort(function (g1, g2) { return (((g2.plays === undefined ? 0 : g2.plays.length) - (g1.plays === undefined ? 0 : g1.plays.length)) * _this.playsOrderAsc); });
+        this.games.sort(function (g1, g2) { return (((g2.playsCount === undefined ? 0 : g2.playsCount) - (g1.playsCount === undefined ? 0 : g1.playsCount)) * _this.playsOrderAsc); });
         this.playsOrderAsc = this.playsOrderAsc * -1;
     };
     return GamesLibraryComponent;

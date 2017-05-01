@@ -52,7 +52,7 @@ export class GamesLibraryComponent implements OnInit {
   */
   sortByPlays(): void {
     this.games.sort((g1,g2)=> (
-      ((g2.plays === undefined ? 0 : g2.plays.length) - (g1.plays === undefined ? 0 : g1.plays.length)) * this.playsOrderAsc));
+      ((g2.playsCount === undefined ? 0 : g2.playsCount) - (g1.playsCount === undefined ? 0 : g1.playsCount)) * this.playsOrderAsc));
     this.playsOrderAsc = this.playsOrderAsc * -1;
   }
 }

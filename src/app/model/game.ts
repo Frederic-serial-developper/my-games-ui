@@ -6,5 +6,6 @@ export class Game {
   source: string;
   rank: number;
   image: string;
+  playsCount: number;
   plays: Play[];
 }
