@@ -16,7 +16,7 @@ var GamesLibraryComponent = (function () {
     }
     GamesLibraryComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.rankOrderAsc = 1;
+        this.ratingOrderAsc = 1;
         this.nameOrderAsc = 1;
         this.playsOrderAsc = 1;
         this.gameLibrayService.getGames().subscribe(function (result) { return _this.games = result; });
@@ -33,12 +33,12 @@ var GamesLibraryComponent = (function () {
         this.nameOrderAsc = this.nameOrderAsc * -1;
     };
     /*
-    * sort the game list by rank. Revert order each time it is called. On first call, games will be desc sorted.
+    * sort the game list by rate. Revert order each time it is called. On first call, games will be desc sorted.
     */
-    GamesLibraryComponent.prototype.sortByRank = function () {
+    GamesLibraryComponent.prototype.sortByRating = function () {
         var _this = this;
-        this.games.sort(function (g1, g2) { return (g2.rank - g1.rank) * _this.rankOrderAsc; });
-        this.rankOrderAsc = this.rankOrderAsc * -1;
+        this.games.sort(function (g1, g2) { return (g2.rating - g1.rating) * _this.ratingOrderAsc; });
+        this.ratingOrderAsc = this.ratingOrderAsc * -1;
     };
     /*
     * sort the game list by plays. Revert order each time it is called. On first call, games will be desc sorted.

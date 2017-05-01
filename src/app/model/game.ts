@@ -4,7 +4,7 @@ export class Game {
   id: number;
   name: string;
   source: string;
-  rank: number;
+  rating: number;
   image: string;
   playsCount: number;
   plays: Play[];
