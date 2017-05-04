@@ -24,7 +24,7 @@ export class GamesLibraryComponent implements OnInit {
     this.ratingOrderAsc = 1;
     this.nameOrderAsc = 1;
     this.playsOrderAsc = 1;
-    this.gameLibrayService.getGames().subscribe(result => this.games = result);
+    this.gameLibrayService.getGamesFromFile().subscribe(result => this.games = result);
   }
 
   onSelect(game: Game): void {

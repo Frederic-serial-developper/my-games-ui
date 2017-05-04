@@ -19,7 +19,7 @@ var GamesLibraryComponent = (function () {
         this.ratingOrderAsc = 1;
         this.nameOrderAsc = 1;
         this.playsOrderAsc = 1;
-        this.gameLibrayService.getGames().subscribe(function (result) { return _this.games = result; });
+        this.gameLibrayService.getGamesFromFile().subscribe(function (result) { return _this.games = result; });
     };
     GamesLibraryComponent.prototype.onSelect = function (game) {
         this.selectedGame = game;

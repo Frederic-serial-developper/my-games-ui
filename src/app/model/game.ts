@@ -8,4 +8,8 @@ export class Game {
   image: string;
   playsCount: number;
   plays: Play[];
+  year: number;
+  minPlayers: number;
+  maxPlayers: number;
+  playingTime: number;
 }

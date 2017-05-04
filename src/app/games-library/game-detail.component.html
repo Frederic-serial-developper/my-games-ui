@@ -1,5 +1,11 @@
 <div *ngIf="game">
-    Id : {{game.id}}
-    Name : {{game.name}}
-    Source : {{game.source}}
+    <p>
+        {{game.name}} ({{game.year}})
+    </p>
+    <p>
+        {{game.minPlayers}} to {{game.maxPlayers}} players
+    </p>
+    <p>
+        {{game.playingTime}} minutes
+    </p>
 </div>
