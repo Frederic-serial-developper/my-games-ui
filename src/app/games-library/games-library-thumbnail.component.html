@@ -2,7 +2,7 @@
     <div class="library-thumbnail">
         <img [src]="game.image" height="200px" width="200px" (click)="onClickImage()">
         <div class="caption">
-            <ngb-rating [(rate)]="game.rating"></ngb-rating>
+            <ngb-rating [(rate)]="game.rating" [readonly]="true"></ngb-rating>
             <span *ngIf="game.playsCount" class="badge badge-default">{{game.playsCount}}</span>
             <span *ngIf="!game.playsCount" class="badge badge-default">0</span>
         </div>
