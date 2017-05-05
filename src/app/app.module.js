@@ -10,6 +10,9 @@ var platform_browser_1 = require("@angular/platform-browser");
 var http_1 = require("@angular/http");
 // ng bootstrap
 var ng_bootstrap_1 = require("@ng-bootstrap/ng-bootstrap");
+// material2
+var animations_1 = require("@angular/platform-browser/animations");
+var material_1 = require("@angular/material");
 // app
 var app_component_1 = require("./app.component");
 // app components & services
@@ -26,7 +29,9 @@ AppModule = __decorate([
     core_1.NgModule({
         imports: [platform_browser_1.BrowserModule,
             http_1.HttpModule,
-            ng_bootstrap_1.NgbModule.forRoot()],
+            ng_bootstrap_1.NgbModule.forRoot(),
+            animations_1.BrowserAnimationsModule,
+            material_1.MdButtonModule, material_1.MdCheckboxModule],
         declarations: [app_component_1.AppComponent,
             games_library_component_1.GamesLibraryComponent,
             games_library_thumbnail_component_1.GamesLibraryThumbnailComponent,
