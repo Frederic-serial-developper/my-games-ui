@@ -13,6 +13,7 @@ var ng_bootstrap_1 = require("@ng-bootstrap/ng-bootstrap");
 // material2
 var animations_1 = require("@angular/platform-browser/animations");
 var material_1 = require("@angular/material");
+require("hammerjs");
 // app
 var app_component_1 = require("./app.component");
 // app components & services
@@ -31,7 +32,7 @@ AppModule = __decorate([
             http_1.HttpModule,
             ng_bootstrap_1.NgbModule.forRoot(),
             animations_1.BrowserAnimationsModule,
-            material_1.MdButtonModule, material_1.MdCheckboxModule],
+            material_1.MdButtonModule, material_1.MdCheckboxModule, material_1.MdSliderModule, material_1.MdTooltipModule],
         declarations: [app_component_1.AppComponent,
             games_library_component_1.GamesLibraryComponent,
             games_library_thumbnail_component_1.GamesLibraryThumbnailComponent,

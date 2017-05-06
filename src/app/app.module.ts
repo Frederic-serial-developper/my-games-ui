@@ -7,7 +7,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 // material2
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MdButtonModule, MdCheckboxModule} from '@angular/material';
+import {MdButtonModule, MdCheckboxModule, MdSliderModule, MdTooltipModule} from '@angular/material';
+import 'hammerjs';
 
 // app
 import { AppComponent } from './app.component';
@@ -23,7 +24,7 @@ import { GameLibraryService } from './games-library/games-library.service';
     HttpModule,
     NgbModule.forRoot(),
     BrowserAnimationsModule,
-    MdButtonModule, MdCheckboxModule],
+    MdButtonModule, MdCheckboxModule, MdSliderModule, MdTooltipModule],
   declarations: [AppComponent,
     GamesLibraryComponent,
     GamesLibraryThumbnailComponent,

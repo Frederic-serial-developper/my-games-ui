@@ -17,9 +17,15 @@ var GamesLibraryComponent = (function () {
     GamesLibraryComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.ratingOrderAsc = 1;
-        this.nameOrderAsc = 1;
+        this.nameOrderAsc = -1;
         this.playsOrderAsc = 1;
-        this.gameLibrayService.getGamesFromFile().subscribe(function (result) { return _this.games = result; });
+        this.defaultPlayerCountFilter = 4;
+        this.gameLibrayService.getGamesFromFile().subscribe(function (receivedGames) { return _this.onReceiveData(receivedGames); });
+    };
+    GamesLibraryComponent.prototype.onReceiveData = function (receivedGames) {
+        this.games = receivedGames;
+        this.games.sort(function (g1, g2) { return (g1.name.localeCompare(g2.name)); });
+        this.filterByPlayersCount(this.defaultPlayerCountFilter);
     };
     GamesLibraryComponent.prototype.onSelect = function (game) {
         this.selectedGame = game;
@@ -30,6 +36,7 @@ var GamesLibraryComponent = (function () {
     GamesLibraryComponent.prototype.sortByName = function () {
         var _this = this;
         this.games.sort(function (g1, g2) { return (g1.name.localeCompare(g2.name)) * _this.nameOrderAsc; });
+        this.displayedGames.sort(function (g1, g2) { return (g1.name.localeCompare(g2.name)) * _this.nameOrderAsc; });
         this.nameOrderAsc = this.nameOrderAsc * -1;
     };
     /*
@@ -38,6 +45,7 @@ var GamesLibraryComponent = (function () {
     GamesLibraryComponent.prototype.sortByRating = function () {
         var _this = this;
         this.games.sort(function (g1, g2) { return (g2.rating - g1.rating) * _this.ratingOrderAsc; });
+        this.displayedGames.sort(function (g1, g2) { return (g2.rating - g1.rating) * _this.ratingOrderAsc; });
         this.ratingOrderAsc = this.ratingOrderAsc * -1;
     };
     /*
@@ -46,7 +54,14 @@ var GamesLibraryComponent = (function () {
     GamesLibraryComponent.prototype.sortByPlays = function () {
         var _this = this;
         this.games.sort(function (g1, g2) { return (((g2.playsCount === undefined ? 0 : g2.playsCount) - (g1.playsCount === undefined ? 0 : g1.playsCount)) * _this.playsOrderAsc); });
+        this.displayedGames.sort(function (g1, g2) { return (((g2.playsCount === undefined ? 0 : g2.playsCount) - (g1.playsCount === undefined ? 0 : g1.playsCount)) * _this.playsOrderAsc); });
         this.playsOrderAsc = this.playsOrderAsc * -1;
+    };
+    GamesLibraryComponent.prototype.onSliderPlayerCountEvent = function (event) {
+        this.filterByPlayersCount(event.value);
+    };
+    GamesLibraryComponent.prototype.filterByPlayersCount = function (count) {
+        this.displayedGames = this.games.filter(function (game) { return game.minPlayers <= count && count <= game.maxPlayers; });
     };
     return GamesLibraryComponent;
 }());
