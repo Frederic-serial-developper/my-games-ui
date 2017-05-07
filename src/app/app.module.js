@@ -9,6 +9,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
 var http_1 = require("@angular/http");
+var router_1 = require("@angular/router");
 // ng bootstrap
 var ng_bootstrap_1 = require("@ng-bootstrap/ng-bootstrap");
 // material2
@@ -17,11 +18,13 @@ var material_1 = require("@angular/material");
 require("hammerjs");
 // app
 var app_component_1 = require("./app.component");
-// app components & services
+// app components & services for library
 var games_library_component_1 = require("./games-library/games-library.component");
 var games_library_thumbnail_component_1 = require("./games-library/games-library-thumbnail.component");
 var game_detail_component_1 = require("./games-library/game-detail.component");
 var games_library_service_1 = require("./games-library/games-library.service");
+// app components & services for statistics
+var games_statistics_component_1 = require("./games-statistics/games-statistics.component");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -32,12 +35,28 @@ AppModule = __decorate([
         imports: [platform_browser_1.BrowserModule,
             http_1.HttpModule,
             ng_bootstrap_1.NgbModule.forRoot(),
+            router_1.RouterModule.forRoot([
+                {
+                    path: 'library',
+                    component: games_library_component_1.GamesLibraryComponent
+                },
+                {
+                    path: 'statistics',
+                    component: games_statistics_component_1.GamesStatisticsComponent
+                },
+                {
+                    path: '',
+                    redirectTo: '/library',
+                    pathMatch: 'full'
+                },
+            ]),
             animations_1.BrowserAnimationsModule,
             material_1.MdButtonModule, material_1.MdCheckboxModule, material_1.MdSliderModule, material_1.MdTooltipModule],
         declarations: [app_component_1.AppComponent,
             games_library_component_1.GamesLibraryComponent,
             games_library_thumbnail_component_1.GamesLibraryThumbnailComponent,
-            game_detail_component_1.GameDetailComponent],
+            game_detail_component_1.GameDetailComponent,
+            games_statistics_component_1.GamesStatisticsComponent],
         bootstrap: [app_component_1.AppComponent],
         providers: [games_library_service_1.GameLibraryService]
     })
