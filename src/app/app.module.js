@@ -25,6 +25,7 @@ var game_detail_component_1 = require("./games-library/game-detail.component");
 var games_library_service_1 = require("./games-library/games-library.service");
 // app components & services for statistics
 var games_statistics_component_1 = require("./games-statistics/games-statistics.component");
+var games_statistics_service_1 = require("./games-statistics/games-statistics.service");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -58,7 +59,7 @@ AppModule = __decorate([
             game_detail_component_1.GameDetailComponent,
             games_statistics_component_1.GamesStatisticsComponent],
         bootstrap: [app_component_1.AppComponent],
-        providers: [games_library_service_1.GameLibraryService]
+        providers: [games_library_service_1.GameLibraryService, games_statistics_service_1.CollectionStatisticsService]
     })
 ], AppModule);
 exports.AppModule = AppModule;

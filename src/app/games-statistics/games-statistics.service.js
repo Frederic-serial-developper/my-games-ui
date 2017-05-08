@@ -12,28 +12,28 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
 var RX_1 = require("rxjs/RX");
-var GameLibraryService = (function () {
-    function GameLibraryService(http) {
+var CollectionStatisticsService = (function () {
+    function CollectionStatisticsService(http) {
         this.http = http;
     }
-    GameLibraryService.prototype.getGamesFromFile = function () {
-        return this.http.get("app/games-library/games.json").map(function (response) {
+    CollectionStatisticsService.prototype.getCollectionStatisticsFromFile = function () {
+        return this.http.get("app/games-statistics/collection-stats.json").map(function (response) {
             return response.json();
         }).catch(this.handleError);
     };
-    GameLibraryService.prototype.getGames = function () {
-        return this.http.get("http://localhost:8080/my-games-services/bgg/collection/fredericdib?includeExpansions=false").map(function (response) {
+    CollectionStatisticsService.prototype.getCollectionStatistics = function () {
+        return this.http.get("http://localhost:8080/my-games-services/bgg/collection/fredericdib/stats?includeExpansions=false").map(function (response) {
             return response.json();
         }).catch(this.handleError);
     };
-    GameLibraryService.prototype.handleError = function (error) {
+    CollectionStatisticsService.prototype.handleError = function (error) {
         return RX_1.Observable.throw(error.json());
     };
-    return GameLibraryService;
+    return CollectionStatisticsService;
 }());
-GameLibraryService = __decorate([
+CollectionStatisticsService = __decorate([
     core_1.Injectable(),
     __metadata("design:paramtypes", [http_1.Http])
-], GameLibraryService);
-exports.GameLibraryService = GameLibraryService;
-//# sourceMappingURL=games-library.service.js.map
+], CollectionStatisticsService);
+exports.CollectionStatisticsService = CollectionStatisticsService;
+//# sourceMappingURL=games-statistics.service.js.map

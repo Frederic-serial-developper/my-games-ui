@@ -20,6 +20,7 @@ import { GameDetailComponent } from './games-library/game-detail.component';
 import { GameLibraryService } from './games-library/games-library.service';
 // app components & services for statistics
 import { GamesStatisticsComponent } from './games-statistics/games-statistics.component';
+import { CollectionStatisticsService } from './games-statistics/games-statistics.service';
 
 @NgModule({
   imports: [BrowserModule,
@@ -48,6 +49,6 @@ import { GamesStatisticsComponent } from './games-statistics/games-statistics.co
     GameDetailComponent,
     GamesStatisticsComponent],
   bootstrap: [AppComponent],
-  providers: [GameLibraryService]
+  providers: [GameLibraryService, CollectionStatisticsService]
 })
 export class AppModule { }

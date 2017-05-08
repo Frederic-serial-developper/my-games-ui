@@ -16,7 +16,7 @@ export class GameLibraryService {
     }
 
     getGames(): Observable<Game[]> {
-        return this.http.get("http://localhost:8080/my-games-services/bgg/collection/fredericdib").map((response: Response) => {
+        return this.http.get("http://localhost:8080/my-games-services/bgg/collection/fredericdib?includeExpansions=false").map((response: Response) => {
            return <Game[]>response.json();
         }).catch(this.handleError);
     }
