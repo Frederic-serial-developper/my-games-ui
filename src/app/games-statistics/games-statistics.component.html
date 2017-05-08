@@ -1,3 +1,14 @@
-<div *ngIf="stats">
-    Total size : {{stats.totalSize}}
+<div>
+    <form #bggUserForm="ngForm" (ngSubmit)="reloadStatistics(bggUserForm.value.bggUser)">
+        <input type="text" id="bggUser" [ngModel]="bggUser" name="bggUser">
+        <button type="submit" class="btn btn-success">Reload</button>
+    </form>
+</div>
+<div>
+    <div *ngIf="loading">
+        <md-spinner></md-spinner>
+    </div>
+    <div *ngIf="!loading && stats">
+        Total size : {{stats.totalSize}}
+    </div>
 </div>

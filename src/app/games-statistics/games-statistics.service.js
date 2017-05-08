@@ -16,13 +16,13 @@ var CollectionStatisticsService = (function () {
     function CollectionStatisticsService(http) {
         this.http = http;
     }
-    CollectionStatisticsService.prototype.getCollectionStatisticsFromFile = function () {
+    CollectionStatisticsService.prototype.getCollectionStatisticsFromFile = function (bggUser) {
         return this.http.get("app/games-statistics/collection-stats.json").map(function (response) {
             return response.json();
         }).catch(this.handleError);
     };
-    CollectionStatisticsService.prototype.getCollectionStatistics = function () {
-        return this.http.get("http://localhost:8080/my-games-services/bgg/collection/fredericdib/stats?includeExpansions=false").map(function (response) {
+    CollectionStatisticsService.prototype.getCollectionStatistics = function (bggUser) {
+        return this.http.get("http://localhost:8080/my-games-services/bgg/collection/" + bggUser + "/stats?includeExpansions=false").map(function (response) {
             return response.json();
         }).catch(this.handleError);
     };

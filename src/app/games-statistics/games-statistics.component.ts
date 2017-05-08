@@ -8,13 +8,32 @@ import { CollectionStatisticsService } from './games-statistics.service';
   templateUrl: 'app/games-statistics/games-statistics.component.html'
 })
 export class GamesStatisticsComponent implements OnInit {
+  bggUser: string;
 
   stats: CollectionStatistics;
 
+  loading: boolean;
+
   constructor(private statsService: CollectionStatisticsService) {
   }
+
   ngOnInit(): void {
-    this.statsService.getCollectionStatisticsFromFile().subscribe(receivedStats => this.stats = receivedStats);
+    this.loading = false;
+    this.bggUser = "fredericdib";
+    this.reloadStatistics(this.bggUser);
   }
 
+  onReceiveData(receivedStats: CollectionStatistics) {
+    this.stats = receivedStats;
+    this.loading = false;
+  }
+
+  reloadStatistics(bggUserForm: string): void {
+    this.bggUser = bggUserForm;
+    this.loading = true;
+    this.statsService.getCollectionStatistics(this.bggUser).subscribe(receivedStats => this.onReceiveData(receivedStats));
+  }
 }
+
+
+
