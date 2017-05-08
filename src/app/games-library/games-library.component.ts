@@ -15,6 +15,8 @@ export class GamesLibraryComponent implements OnInit {
 
   loading: boolean;
 
+  online: boolean;
+
   ratingOrderAsc: number;
   nameOrderAsc: number;
   playsOrderAsc: number;
@@ -31,7 +33,8 @@ export class GamesLibraryComponent implements OnInit {
     this.ratingOrderAsc = 1;
     this.nameOrderAsc = -1;
     this.playsOrderAsc = 1;
-    this.bggUser = "fredericdib"
+    this.bggUser = "fredericdib";
+    this.online = false;
     this.defaultPlayerCountFilter = 4;
     this.reloadCollection(this.bggUser);
   }
@@ -39,7 +42,11 @@ export class GamesLibraryComponent implements OnInit {
   reloadCollection(bggUserForm: string): void {
     this.bggUser = bggUserForm;
     this.loading = true;
-    this.gameLibrayService.getGames(this.bggUser).subscribe(receivedGames => this.onReceiveData(receivedGames));
+    if (this.online) {
+      this.gameLibrayService.getGames(this.bggUser).subscribe(receivedGames => this.onReceiveData(receivedGames));
+    } else {
+      this.gameLibrayService.getGamesFromFile().subscribe(receivedGames => this.onReceiveData(receivedGames));
+    }
   }
 
   onReceiveData(receivedGames: Game[]) {
@@ -89,6 +96,6 @@ export class GamesLibraryComponent implements OnInit {
   }
 
   filterByPlayersCount(count: number): void {
-    this.displayedGames = this.games.filter(game => game.minPlayers<=count && count<=game.maxPlayers);
+    this.displayedGames = this.games.filter(game => game.minPlayers <= count && count <= game.maxPlayers);
   }
 }

@@ -9,7 +9,7 @@ export class CollectionStatisticsService {
 
     constructor(private http: Http) { }
 
-    getCollectionStatisticsFromFile(bggUser: string): Observable<CollectionStatistics> {
+    getCollectionStatisticsFromFile(): Observable<CollectionStatistics> {
         return this.http.get("app/games-statistics/collection-stats.json").map((response: Response) => {
             return <CollectionStatistics>response.json();
         }).catch(this.handleError);

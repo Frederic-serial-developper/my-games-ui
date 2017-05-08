@@ -16,7 +16,7 @@ var CollectionStatisticsService = (function () {
     function CollectionStatisticsService(http) {
         this.http = http;
     }
-    CollectionStatisticsService.prototype.getCollectionStatisticsFromFile = function (bggUser) {
+    CollectionStatisticsService.prototype.getCollectionStatisticsFromFile = function () {
         return this.http.get("app/games-statistics/collection-stats.json").map(function (response) {
             return response.json();
         }).catch(this.handleError);

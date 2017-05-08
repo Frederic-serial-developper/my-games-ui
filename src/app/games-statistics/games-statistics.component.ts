@@ -14,12 +14,15 @@ export class GamesStatisticsComponent implements OnInit {
 
   loading: boolean;
 
+  online: boolean;
+
   constructor(private statsService: CollectionStatisticsService) {
   }
 
   ngOnInit(): void {
     this.loading = false;
     this.bggUser = "fredericdib";
+    this.online = false;
     this.reloadStatistics(this.bggUser);
   }
 
@@ -31,7 +34,11 @@ export class GamesStatisticsComponent implements OnInit {
   reloadStatistics(bggUserForm: string): void {
     this.bggUser = bggUserForm;
     this.loading = true;
-    this.statsService.getCollectionStatistics(this.bggUser).subscribe(receivedStats => this.onReceiveData(receivedStats));
+    if (this.online) {
+      this.statsService.getCollectionStatistics(this.bggUser).subscribe(receivedStats => this.onReceiveData(receivedStats));
+    } else {
+      this.statsService.getCollectionStatisticsFromFile().subscribe(receivedStats => this.onReceiveData(receivedStats));
+    }
   }
 }
 

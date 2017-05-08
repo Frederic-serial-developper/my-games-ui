@@ -1,5 +1,9 @@
 <div>
     <div>
+        <md-slide-toggle
+          [(ngModel)]="online">
+        Online
+      </md-slide-toggle>
         <form #bggUserForm="ngForm" (ngSubmit)="reloadCollection(bggUserForm.value.bggUser)">
             <input type="text" id="bggUser" [ngModel]="bggUser" name="bggUser">
             <button type="submit" class="btn btn-success">Reload</button>

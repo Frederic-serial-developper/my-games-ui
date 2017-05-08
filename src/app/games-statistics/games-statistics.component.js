@@ -18,6 +18,7 @@ var GamesStatisticsComponent = (function () {
     GamesStatisticsComponent.prototype.ngOnInit = function () {
         this.loading = false;
         this.bggUser = "fredericdib";
+        this.online = false;
         this.reloadStatistics(this.bggUser);
     };
     GamesStatisticsComponent.prototype.onReceiveData = function (receivedStats) {
@@ -28,7 +29,12 @@ var GamesStatisticsComponent = (function () {
         var _this = this;
         this.bggUser = bggUserForm;
         this.loading = true;
-        this.statsService.getCollectionStatistics(this.bggUser).subscribe(function (receivedStats) { return _this.onReceiveData(receivedStats); });
+        if (this.online) {
+            this.statsService.getCollectionStatistics(this.bggUser).subscribe(function (receivedStats) { return _this.onReceiveData(receivedStats); });
+        }
+        else {
+            this.statsService.getCollectionStatisticsFromFile().subscribe(function (receivedStats) { return _this.onReceiveData(receivedStats); });
+        }
     };
     return GamesStatisticsComponent;
 }());

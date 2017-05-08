@@ -16,7 +16,7 @@ var GameLibraryService = (function () {
     function GameLibraryService(http) {
         this.http = http;
     }
-    GameLibraryService.prototype.getGamesFromFile = function (bggUser) {
+    GameLibraryService.prototype.getGamesFromFile = function () {
         return this.http.get("app/games-library/games.json").map(function (response) {
             return response.json();
         }).catch(this.handleError);

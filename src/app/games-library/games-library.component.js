@@ -21,6 +21,7 @@ var GamesLibraryComponent = (function () {
         this.nameOrderAsc = -1;
         this.playsOrderAsc = 1;
         this.bggUser = "fredericdib";
+        this.online = false;
         this.defaultPlayerCountFilter = 4;
         this.reloadCollection(this.bggUser);
     };
@@ -28,7 +29,12 @@ var GamesLibraryComponent = (function () {
         var _this = this;
         this.bggUser = bggUserForm;
         this.loading = true;
-        this.gameLibrayService.getGames(this.bggUser).subscribe(function (receivedGames) { return _this.onReceiveData(receivedGames); });
+        if (this.online) {
+            this.gameLibrayService.getGames(this.bggUser).subscribe(function (receivedGames) { return _this.onReceiveData(receivedGames); });
+        }
+        else {
+            this.gameLibrayService.getGamesFromFile().subscribe(function (receivedGames) { return _this.onReceiveData(receivedGames); });
+        }
     };
     GamesLibraryComponent.prototype.onReceiveData = function (receivedGames) {
         this.games = receivedGames;

@@ -9,7 +9,7 @@ export class GameLibraryService {
 
     constructor(private http: Http) {}
 
-    getGamesFromFile(bggUser: string): Observable<Game[]> {
+    getGamesFromFile(): Observable<Game[]> {
         return this.http.get("app/games-library/games.json").map((response: Response) => {
            return <Game[]>response.json();
         }).catch(this.handleError);
