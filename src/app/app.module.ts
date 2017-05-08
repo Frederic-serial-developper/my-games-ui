@@ -2,13 +2,14 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
+import { FormsModule }   from '@angular/forms';
 
 // ng bootstrap
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 // material2
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MdButtonModule, MdCheckboxModule, MdSliderModule, MdTooltipModule } from '@angular/material';
+import { MdButtonModule, MdCheckboxModule, MdSliderModule, MdTooltipModule, MdProgressSpinnerModule } from '@angular/material';
 import 'hammerjs';
 
 // app
@@ -25,6 +26,7 @@ import { CollectionStatisticsService } from './games-statistics/games-statistics
 @NgModule({
   imports: [BrowserModule,
     HttpModule,
+    FormsModule,
     NgbModule.forRoot(),
     RouterModule.forRoot([
       {
@@ -42,7 +44,7 @@ import { CollectionStatisticsService } from './games-statistics/games-statistics
       },
     ]),
     BrowserAnimationsModule,
-    MdButtonModule, MdCheckboxModule, MdSliderModule, MdTooltipModule],
+    MdButtonModule, MdCheckboxModule, MdSliderModule, MdTooltipModule, MdProgressSpinnerModule],
   declarations: [AppComponent,
     GamesLibraryComponent,
     GamesLibraryThumbnailComponent,

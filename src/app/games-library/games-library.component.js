@@ -16,17 +16,25 @@ var GamesLibraryComponent = (function () {
         this.gameLibrayService = gameLibrayService;
     }
     GamesLibraryComponent.prototype.ngOnInit = function () {
-        var _this = this;
+        this.loading = false;
         this.ratingOrderAsc = 1;
         this.nameOrderAsc = -1;
         this.playsOrderAsc = 1;
+        this.bggUser = "fredericdib";
         this.defaultPlayerCountFilter = 4;
-        this.gameLibrayService.getGamesFromFile().subscribe(function (receivedGames) { return _this.onReceiveData(receivedGames); });
+        this.reloadCollection(this.bggUser);
+    };
+    GamesLibraryComponent.prototype.reloadCollection = function (bggUserForm) {
+        var _this = this;
+        this.bggUser = bggUserForm;
+        this.loading = true;
+        this.gameLibrayService.getGames(this.bggUser).subscribe(function (receivedGames) { return _this.onReceiveData(receivedGames); });
     };
     GamesLibraryComponent.prototype.onReceiveData = function (receivedGames) {
         this.games = receivedGames;
         this.games.sort(function (g1, g2) { return (g1.name.localeCompare(g2.name)); });
         this.filterByPlayersCount(this.defaultPlayerCountFilter);
+        this.loading = false;
     };
     GamesLibraryComponent.prototype.onSelect = function (game) {
         this.selectedGame = game;

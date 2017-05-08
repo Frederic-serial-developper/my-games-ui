@@ -1,18 +1,29 @@
 <div>
-    <div class="btn-group library-btn" data-toggle="buttons">
-        <button md-button (click)="sortByName()">Sort by name</button>
-        <button md-button (click)="sortByRating()">Sort by rating</button>
-        <button md-button (click)="sortByPlays()">Sort by plays</button>
-        <div mdTooltip="Players count" mdTooltipPosition="right">
-            <md-slider [min]="1" [max]="10" [step]="1" [thumb-label]="true" [tick-interval]="1" [value]="defaultPlayerCountFilter" displayValue="XXX"
-                (input)="onSliderPlayerCountEvent($event)">
-            </md-slider>
-        </div>
+    <div>
+        <form #bggUserForm="ngForm" (ngSubmit)="reloadCollection(bggUserForm.value.bggUser)">
+            <input type="text" id="bggUser" [ngModel]="bggUser" name="bggUser">
+            <button type="submit" class="btn btn-success">Reload</button>
+        </form>
     </div>
+    <div *ngIf="loading">
+        <md-spinner></md-spinner>
+    </div>
+    <div *ngIf="!loading">
+        <div class="btn-group library-btn" data-toggle="buttons">
+            <button md-button (click)="sortByName()">Sort by name</button>
+            <button md-button (click)="sortByRating()">Sort by rating</button>
+            <button md-button (click)="sortByPlays()">Sort by plays</button>
+            <div mdTooltip="Players count" mdTooltipPosition="right">
+                <md-slider [min]="1" [max]="10" [step]="1" [thumb-label]="true" [tick-interval]="1" [value]="defaultPlayerCountFilter" displayValue="XXX"
+                    (input)="onSliderPlayerCountEvent($event)">
+                </md-slider>
+            </div>
+        </div>
 
-    <div class="library-container">
-        <div *ngFor="let game of displayedGames" (click)="onSelect(game)">
-            <games-library-thumbnail [game]="game"></games-library-thumbnail>
+        <div class="library-container">
+            <div *ngFor="let game of displayedGames" (click)="onSelect(game)">
+                <games-library-thumbnail [game]="game"></games-library-thumbnail>
+            </div>
         </div>
     </div>
 </div>

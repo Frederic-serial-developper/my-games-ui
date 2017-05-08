@@ -10,6 +10,7 @@ var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
 var http_1 = require("@angular/http");
 var router_1 = require("@angular/router");
+var forms_1 = require("@angular/forms");
 // ng bootstrap
 var ng_bootstrap_1 = require("@ng-bootstrap/ng-bootstrap");
 // material2
@@ -35,6 +36,7 @@ AppModule = __decorate([
     core_1.NgModule({
         imports: [platform_browser_1.BrowserModule,
             http_1.HttpModule,
+            forms_1.FormsModule,
             ng_bootstrap_1.NgbModule.forRoot(),
             router_1.RouterModule.forRoot([
                 {
@@ -52,7 +54,7 @@ AppModule = __decorate([
                 },
             ]),
             animations_1.BrowserAnimationsModule,
-            material_1.MdButtonModule, material_1.MdCheckboxModule, material_1.MdSliderModule, material_1.MdTooltipModule],
+            material_1.MdButtonModule, material_1.MdCheckboxModule, material_1.MdSliderModule, material_1.MdTooltipModule, material_1.MdProgressSpinnerModule],
         declarations: [app_component_1.AppComponent,
             games_library_component_1.GamesLibraryComponent,
             games_library_thumbnail_component_1.GamesLibraryThumbnailComponent,

@@ -9,9 +9,11 @@ import { GameLibraryService } from './games-library.service';
   templateUrl: 'app/games-library/games-library.component.html'
 })
 export class GamesLibraryComponent implements OnInit {
+  bggUser: string;
   games: Game[];
   displayedGames: Game[];
 
+  loading: boolean;
 
   ratingOrderAsc: number;
   nameOrderAsc: number;
@@ -25,17 +27,26 @@ export class GamesLibraryComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.loading = false;
     this.ratingOrderAsc = 1;
     this.nameOrderAsc = -1;
     this.playsOrderAsc = 1;
+    this.bggUser = "fredericdib"
     this.defaultPlayerCountFilter = 4;
-    this.gameLibrayService.getGamesFromFile().subscribe(receivedGames => this.onReceiveData(receivedGames));
+    this.reloadCollection(this.bggUser);
+  }
+
+  reloadCollection(bggUserForm: string): void {
+    this.bggUser = bggUserForm;
+    this.loading = true;
+    this.gameLibrayService.getGames(this.bggUser).subscribe(receivedGames => this.onReceiveData(receivedGames));
   }
 
   onReceiveData(receivedGames: Game[]) {
     this.games = receivedGames;
     this.games.sort((g1, g2) => (g1.name.localeCompare(g2.name)));
     this.filterByPlayersCount(this.defaultPlayerCountFilter);
+    this.loading = false;
   }
 
   onSelect(game: Game): void {

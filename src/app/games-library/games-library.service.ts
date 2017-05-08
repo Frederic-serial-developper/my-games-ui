@@ -9,14 +9,14 @@ export class GameLibraryService {
 
     constructor(private http: Http) {}
 
-    getGamesFromFile(): Observable<Game[]> {
+    getGamesFromFile(bggUser: string): Observable<Game[]> {
         return this.http.get("app/games-library/games.json").map((response: Response) => {
            return <Game[]>response.json();
         }).catch(this.handleError);
     }
 
-    getGames(): Observable<Game[]> {
-        return this.http.get("http://localhost:8080/my-games-services/bgg/collection/fredericdib?includeExpansions=false").map((response: Response) => {
+    getGames(bggUser: string): Observable<Game[]> {
+        return this.http.get("http://localhost:8080/my-games-services/bgg/collection/" + bggUser + "?includeExpansions=false").map((response: Response) => {
            return <Game[]>response.json();
         }).catch(this.handleError);
     }
