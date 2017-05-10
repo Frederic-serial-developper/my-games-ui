@@ -11,7 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
-var RX_1 = require("rxjs/RX");
+var Rx_1 = require("rxjs/Rx");
 var CollectionStatisticsService = (function () {
     function CollectionStatisticsService(http) {
         this.http = http;
@@ -27,7 +27,7 @@ var CollectionStatisticsService = (function () {
         }).catch(this.handleError);
     };
     CollectionStatisticsService.prototype.handleError = function (error) {
-        return RX_1.Observable.throw(error.json());
+        return Rx_1.Observable.throw(error.json());
     };
     return CollectionStatisticsService;
 }());
