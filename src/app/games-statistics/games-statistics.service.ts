@@ -15,8 +15,8 @@ export class CollectionStatisticsService {
         }).catch(this.handleError);
     }
 
-    getCollectionStatistics(bggUser: string, service: string, includeExpansion: boolean): Observable<CollectionStatistics> {
-        return this.http.get(service + "/bgg/collection/" + bggUser + "/stats?includeExpansions=" + includeExpansion).map((response: Response) => {
+    getCollectionStatistics(bggUser: string, service: string, includeExpansion: boolean, includePreviouslyOwned: boolean): Observable<CollectionStatistics> {
+        return this.http.get(service + "/bgg/collection/" + bggUser + "/stats?includeExpansions=" + includeExpansion + "&includePreviouslyOwned=" + includePreviouslyOwned).map((response: Response) => {
             return <CollectionStatistics>response.json();
         }).catch(this.handleError);
     }

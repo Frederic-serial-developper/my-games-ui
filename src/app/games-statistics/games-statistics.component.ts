@@ -13,6 +13,7 @@ export class GamesStatisticsComponent implements OnInit {
   private stats: CollectionStatistics;
 
   private loading: boolean;
+  private includePreviouslyOwned: boolean;
 
   private online: boolean;
   private includeExpansion: boolean;
@@ -28,6 +29,7 @@ export class GamesStatisticsComponent implements OnInit {
   ngOnInit(): void {
     this.loading = false;
     this.includeExpansion = true;
+    this.includePreviouslyOwned = false;
     this.bggUser = "fredericdib";
     this.online = false;
     this.reloadStatistics(this.bggUser, null);
@@ -43,7 +45,7 @@ export class GamesStatisticsComponent implements OnInit {
     this.selectedService = serviceForm;
     this.loading = true;
     if (this.online) {
-      this.statsService.getCollectionStatistics(this.bggUser, this.selectedService, this.includeExpansion).subscribe(receivedStats => this.onReceiveData(receivedStats));
+      this.statsService.getCollectionStatistics(this.bggUser, this.selectedService, this.includeExpansion, this.includePreviouslyOwned).subscribe(receivedStats => this.onReceiveData(receivedStats));
     } else {
       this.statsService.getCollectionStatisticsFromFile().subscribe(receivedStats => this.onReceiveData(receivedStats));
     }

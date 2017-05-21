@@ -2,8 +2,11 @@
     <md-slide-toggle [(ngModel)]="online">
         Online
     </md-slide-toggle>
-    <md-slide-toggle [(ngModel)]="includeExpansion">
+    <md-slide-toggle *ngIf="online" [(ngModel)]="includeExpansion">
         Expansions
+    </md-slide-toggle>
+    <md-slide-toggle *ngIf="online" [(ngModel)]="includePreviouslyOwned">
+        Previously Owned
     </md-slide-toggle>
     <form *ngIf="online" #bggUserForm="ngForm" (ngSubmit)="reloadStatistics(bggUserForm.value.bggUser, bggUserForm.value.service)">
         <!-- bgg user -->

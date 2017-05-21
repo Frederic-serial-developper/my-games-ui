@@ -22,6 +22,7 @@ var GamesLibraryComponent = (function () {
     GamesLibraryComponent.prototype.ngOnInit = function () {
         this.loading = false;
         this.includeExpansion = true;
+        this.includePreviouslyOwned = false;
         this.ratingOrderAsc = 1;
         this.nameOrderAsc = -1;
         this.playsOrderAsc = 1;
@@ -37,7 +38,7 @@ var GamesLibraryComponent = (function () {
         this.selectedService = serviceForm;
         this.loading = true;
         if (this.online) {
-            this.gameLibrayService.getGames(this.bggUser, this.selectedService, this.includeExpansion).subscribe(function (receivedGames) { return _this.onReceiveData(receivedGames); });
+            this.gameLibrayService.getGames(this.bggUser, this.selectedService, this.includeExpansion, this.includePreviouslyOwned).subscribe(function (receivedGames) { return _this.onReceiveData(receivedGames); });
         }
         else {
             this.gameLibrayService.getGamesFromFile().subscribe(function (receivedGames) { return _this.onReceiveData(receivedGames); });

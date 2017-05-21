@@ -22,6 +22,7 @@ var GamesStatisticsComponent = (function () {
     GamesStatisticsComponent.prototype.ngOnInit = function () {
         this.loading = false;
         this.includeExpansion = true;
+        this.includePreviouslyOwned = false;
         this.bggUser = "fredericdib";
         this.online = false;
         this.reloadStatistics(this.bggUser, null);
@@ -36,7 +37,7 @@ var GamesStatisticsComponent = (function () {
         this.selectedService = serviceForm;
         this.loading = true;
         if (this.online) {
-            this.statsService.getCollectionStatistics(this.bggUser, this.selectedService, this.includeExpansion).subscribe(function (receivedStats) { return _this.onReceiveData(receivedStats); });
+            this.statsService.getCollectionStatistics(this.bggUser, this.selectedService, this.includeExpansion, this.includePreviouslyOwned).subscribe(function (receivedStats) { return _this.onReceiveData(receivedStats); });
         }
         else {
             this.statsService.getCollectionStatisticsFromFile().subscribe(function (receivedStats) { return _this.onReceiveData(receivedStats); });

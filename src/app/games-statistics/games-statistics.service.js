@@ -21,8 +21,8 @@ var CollectionStatisticsService = (function () {
             return response.json();
         }).catch(this.handleError);
     };
-    CollectionStatisticsService.prototype.getCollectionStatistics = function (bggUser, service, includeExpansion) {
-        return this.http.get(service + "/bgg/collection/" + bggUser + "/stats?includeExpansions=" + includeExpansion).map(function (response) {
+    CollectionStatisticsService.prototype.getCollectionStatistics = function (bggUser, service, includeExpansion, includePreviouslyOwned) {
+        return this.http.get(service + "/bgg/collection/" + bggUser + "/stats?includeExpansions=" + includeExpansion + "&includePreviouslyOwned=" + includePreviouslyOwned).map(function (response) {
             return response.json();
         }).catch(this.handleError);
     };
