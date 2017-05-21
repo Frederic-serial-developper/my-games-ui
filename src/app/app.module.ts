@@ -28,6 +28,7 @@ import { GameLibraryService } from './games-library/games-library.service';
 // app components & services for statistics
 import { GamesStatisticsComponent } from './games-statistics/games-statistics.component';
 import { GamesStatisticsRankingComponent } from './games-statistics/games-statistics-ranking.component';
+import { GamesStatisticsYearComponent } from './games-statistics/games-statistics-year.component';
 import { GamesStatisticsGlobalComponent } from './games-statistics/games-statistics-global.component';
 import { CollectionStatisticsService } from './games-statistics/games-statistics.service';
 
@@ -61,7 +62,8 @@ import { CollectionStatisticsService } from './games-statistics/games-statistics
     GameDetailComponent,
     GamesStatisticsComponent,
     GamesStatisticsRankingComponent,
-    GamesStatisticsGlobalComponent],
+    GamesStatisticsGlobalComponent,
+    GamesStatisticsYearComponent],
   bootstrap: [AppComponent],
   providers: [GameLibraryService, CollectionStatisticsService]
 })
