@@ -8,13 +8,13 @@ import { CollectionStatisticsService } from './games-statistics.service';
   templateUrl: 'app/games-statistics/games-statistics.component.html'
 })
 export class GamesStatisticsComponent implements OnInit {
-  bggUser: string;
+  private bggUser: string;
 
-  stats: CollectionStatistics;
+  private stats: CollectionStatistics;
 
-  loading: boolean;
+  private loading: boolean;
 
-  online: boolean;
+  private online: boolean;
 
   constructor(private statsService: CollectionStatisticsService) {
   }
@@ -41,6 +41,3 @@ export class GamesStatisticsComponent implements OnInit {
     }
   }
 }
-
-
-

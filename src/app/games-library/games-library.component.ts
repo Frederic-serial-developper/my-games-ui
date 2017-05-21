@@ -9,21 +9,21 @@ import { GameLibraryService } from './games-library.service';
   templateUrl: 'app/games-library/games-library.component.html'
 })
 export class GamesLibraryComponent implements OnInit {
-  bggUser: string;
-  games: Game[];
-  displayedGames: Game[];
+  private bggUser: string;
+  private games: Game[];
+  private displayedGames: Game[];
 
-  loading: boolean;
+  private loading: boolean;
 
-  online: boolean;
+  private online: boolean;
 
-  ratingOrderAsc: number;
-  nameOrderAsc: number;
-  playsOrderAsc: number;
+  private ratingOrderAsc: number;
+  private nameOrderAsc: number;
+  private playsOrderAsc: number;
 
-  defaultPlayerCountFilter: number;
+  private defaultPlayerCountFilter: number;
 
-  selectedGame: Game;
+  private selectedGame: Game;
 
   constructor(private gameLibrayService: GameLibraryService) {
   }

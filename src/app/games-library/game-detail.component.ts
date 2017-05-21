@@ -8,5 +8,5 @@ import { Game } from '../model/game';
 })
 
 export class GameDetailComponent {
-  @Input() game: Game;
+  @Input()  private game: Game;
 }

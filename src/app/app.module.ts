@@ -7,6 +7,9 @@ import { FormsModule } from '@angular/forms';
 // ng bootstrap
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+// ng2-charts
+import { ChartsModule } from 'ng2-charts';
+
 // material2
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
@@ -24,6 +27,8 @@ import { GameDetailComponent } from './games-library/game-detail.component';
 import { GameLibraryService } from './games-library/games-library.service';
 // app components & services for statistics
 import { GamesStatisticsComponent } from './games-statistics/games-statistics.component';
+import { GamesStatisticsRankingComponent } from './games-statistics/games-statistics-ranking.component';
+import { GamesStatisticsGlobalComponent } from './games-statistics/games-statistics-global.component';
 import { CollectionStatisticsService } from './games-statistics/games-statistics.service';
 
 @NgModule({
@@ -48,12 +53,15 @@ import { CollectionStatisticsService } from './games-statistics/games-statistics
     ]),
     BrowserAnimationsModule,
     MdButtonModule, MdCheckboxModule, MdSliderModule,
-    MdTooltipModule, MdProgressSpinnerModule, MdSlideToggleModule],
+    MdTooltipModule, MdProgressSpinnerModule, MdSlideToggleModule,
+    ChartsModule],
   declarations: [AppComponent,
     GamesLibraryComponent,
     GamesLibraryThumbnailComponent,
     GameDetailComponent,
-    GamesStatisticsComponent],
+    GamesStatisticsComponent,
+    GamesStatisticsRankingComponent,
+    GamesStatisticsGlobalComponent],
   bootstrap: [AppComponent],
   providers: [GameLibraryService, CollectionStatisticsService]
 })

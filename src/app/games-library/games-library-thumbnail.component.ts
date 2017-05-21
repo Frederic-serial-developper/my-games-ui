@@ -7,7 +7,7 @@ import { Game } from '../model/game';
   templateUrl: 'app/games-library/games-library-thumbnail.component.html'
 })
 export class GamesLibraryThumbnailComponent implements OnInit {
-  @Input() game: Game;
+  @Input() private game: Game;
 
   displayDetails: boolean;
 

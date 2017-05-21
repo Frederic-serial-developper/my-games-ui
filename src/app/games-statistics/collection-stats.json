@@ -1,9 +1,10 @@
 {
-  "totalSize": 116,
+  "totalSize": 117,
+  "totalPlays": 1028,
   "gamesByRatingLevel": {
-    "LEVEL_7": 45,
     "LEVEL_6": 57,
-    "LEVEL_8": 7,
+    "LEVEL_7": 45,
+    "LEVEL_8": 8,
     "LEVEL_5": 7
   }
 }

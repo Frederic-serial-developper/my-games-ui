@@ -13,6 +13,8 @@ var router_1 = require("@angular/router");
 var forms_1 = require("@angular/forms");
 // ng bootstrap
 var ng_bootstrap_1 = require("@ng-bootstrap/ng-bootstrap");
+// ng2-charts
+var ng2_charts_1 = require("ng2-charts");
 // material2
 var animations_1 = require("@angular/platform-browser/animations");
 var material_1 = require("@angular/material");
@@ -26,6 +28,8 @@ var game_detail_component_1 = require("./games-library/game-detail.component");
 var games_library_service_1 = require("./games-library/games-library.service");
 // app components & services for statistics
 var games_statistics_component_1 = require("./games-statistics/games-statistics.component");
+var games_statistics_ranking_component_1 = require("./games-statistics/games-statistics-ranking.component");
+var games_statistics_global_component_1 = require("./games-statistics/games-statistics-global.component");
 var games_statistics_service_1 = require("./games-statistics/games-statistics.service");
 var AppModule = (function () {
     function AppModule() {
@@ -55,12 +59,15 @@ AppModule = __decorate([
             ]),
             animations_1.BrowserAnimationsModule,
             material_1.MdButtonModule, material_1.MdCheckboxModule, material_1.MdSliderModule,
-            material_1.MdTooltipModule, material_1.MdProgressSpinnerModule, material_1.MdSlideToggleModule],
+            material_1.MdTooltipModule, material_1.MdProgressSpinnerModule, material_1.MdSlideToggleModule,
+            ng2_charts_1.ChartsModule],
         declarations: [app_component_1.AppComponent,
             games_library_component_1.GamesLibraryComponent,
             games_library_thumbnail_component_1.GamesLibraryThumbnailComponent,
             game_detail_component_1.GameDetailComponent,
-            games_statistics_component_1.GamesStatisticsComponent],
+            games_statistics_component_1.GamesStatisticsComponent,
+            games_statistics_ranking_component_1.GamesStatisticsRankingComponent,
+            games_statistics_global_component_1.GamesStatisticsGlobalComponent],
         bootstrap: [app_component_1.AppComponent],
         providers: [games_library_service_1.GameLibraryService, games_statistics_service_1.CollectionStatisticsService]
     })
