@@ -2,6 +2,9 @@
     <md-slide-toggle [(ngModel)]="online">
         Online
     </md-slide-toggle>
+    <md-slide-toggle [(ngModel)]="includeExpansion">
+        Expansions
+    </md-slide-toggle>
     <form *ngIf="online" #bggUserForm="ngForm" (ngSubmit)="reloadStatistics(bggUserForm.value.bggUser, bggUserForm.value.service)">
         <!-- bgg user -->
         <input type="text" id="bggUser" [ngModel]="bggUser" name="bggUser" required>
@@ -12,7 +15,7 @@
             </md-option>
         </md-select>
         <!-- form validation button -->
-        <button type="submit" [disabled]="bggUserForm.invalid"  class="btn btn-success">Reload</button>
+        <button type="submit" [disabled]="bggUserForm.invalid" class="btn btn-success">Reload</button>
     </form>
 </div>
 <div>

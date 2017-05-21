@@ -15,6 +15,7 @@ export class GamesStatisticsComponent implements OnInit {
   private loading: boolean;
 
   private online: boolean;
+  private includeExpansion: boolean;
   private selectedService: string;
   private availableServices = [
     { value: 'https://my-games-services.herokuapp.com', viewValue: 'Heroku' },
@@ -26,6 +27,7 @@ export class GamesStatisticsComponent implements OnInit {
 
   ngOnInit(): void {
     this.loading = false;
+    this.includeExpansion = true;
     this.bggUser = "fredericdib";
     this.online = false;
     this.reloadStatistics(this.bggUser, null);
@@ -41,7 +43,7 @@ export class GamesStatisticsComponent implements OnInit {
     this.selectedService = serviceForm;
     this.loading = true;
     if (this.online) {
-      this.statsService.getCollectionStatistics(this.bggUser, this.selectedService).subscribe(receivedStats => this.onReceiveData(receivedStats));
+      this.statsService.getCollectionStatistics(this.bggUser, this.selectedService, this.includeExpansion).subscribe(receivedStats => this.onReceiveData(receivedStats));
     } else {
       this.statsService.getCollectionStatisticsFromFile().subscribe(receivedStats => this.onReceiveData(receivedStats));
     }

@@ -1,6 +1,7 @@
 <div *ngIf="game">
     <p>
         {{game.name}} ({{game.year}})
+        <span *ngIf="game.type === EXPANSION"> / Expansion</span>
     </p>
     <p>
         {{game.minPlayers}}-{{game.maxPlayers}} players

@@ -21,8 +21,8 @@ var GameLibraryService = (function () {
             return response.json();
         }).catch(this.handleError);
     };
-    GameLibraryService.prototype.getGames = function (bggUser, service) {
-        return this.http.get(service + "/bgg/collection/" + bggUser + "?includeExpansions=false").map(function (response) {
+    GameLibraryService.prototype.getGames = function (bggUser, service, includeExpansions) {
+        return this.http.get(service + "/bgg/collection/" + bggUser + "?includeExpansions=" + includeExpansions).map(function (response) {
             return response.json();
         }).catch(this.handleError);
     };

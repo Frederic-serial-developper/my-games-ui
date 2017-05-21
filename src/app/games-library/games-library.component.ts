@@ -15,6 +15,8 @@ export class GamesLibraryComponent implements OnInit {
 
   private loading: boolean;
 
+  private includeExpansion: boolean;
+
   private online: boolean;
   private selectedService: string;
   private availableServices = [
@@ -35,6 +37,7 @@ export class GamesLibraryComponent implements OnInit {
 
   ngOnInit(): void {
     this.loading = false;
+    this.includeExpansion = true;
     this.ratingOrderAsc = 1;
     this.nameOrderAsc = -1;
     this.playsOrderAsc = 1;
@@ -52,7 +55,7 @@ export class GamesLibraryComponent implements OnInit {
     this.selectedService = serviceForm;
     this.loading = true;
     if (this.online) {
-      this.gameLibrayService.getGames(this.bggUser, this.selectedService).subscribe(receivedGames => this.onReceiveData(receivedGames));
+      this.gameLibrayService.getGames(this.bggUser, this.selectedService, this.includeExpansion).subscribe(receivedGames => this.onReceiveData(receivedGames));
     } else {
       this.gameLibrayService.getGamesFromFile().subscribe(receivedGames => this.onReceiveData(receivedGames));
     }

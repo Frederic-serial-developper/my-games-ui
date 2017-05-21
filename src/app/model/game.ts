@@ -3,6 +3,7 @@ import { Play } from '../model/play';
 export class Game {
   id: number;
   name: string;
+  type: string;
   source: string;
   rating: number;
   image: string;
