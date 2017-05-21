@@ -58,7 +58,7 @@ AppModule = __decorate([
                 },
             ]),
             animations_1.BrowserAnimationsModule,
-            material_1.MdButtonModule, material_1.MdCheckboxModule, material_1.MdSliderModule,
+            material_1.MdButtonModule, material_1.MdCheckboxModule, material_1.MdSliderModule, material_1.MdSelectModule,
             material_1.MdTooltipModule, material_1.MdProgressSpinnerModule, material_1.MdSlideToggleModule,
             ng2_charts_1.ChartsModule],
         declarations: [app_component_1.AppComponent,

@@ -16,6 +16,11 @@ export class GamesLibraryComponent implements OnInit {
   private loading: boolean;
 
   private online: boolean;
+  private selectedService: string;
+  private availableServices = [
+    { value: 'https://my-games-services.herokuapp.com', viewValue: 'Heroku' },
+    { value: 'http://localhost:8080/my-games-services', viewValue: 'Local' }
+  ];
 
   private ratingOrderAsc: number;
   private nameOrderAsc: number;
@@ -36,14 +41,18 @@ export class GamesLibraryComponent implements OnInit {
     this.bggUser = "fredericdib";
     this.online = false;
     this.defaultPlayerCountFilter = 4;
-    this.reloadCollection(this.bggUser);
+
+    this.selectedService = 'https://my-games-services.herokuapp.com';
+    
+    this.reloadCollection(this.bggUser, null);
   }
 
-  reloadCollection(bggUserForm: string): void {
+  reloadCollection(bggUserForm: string, serviceForm: any): void {
     this.bggUser = bggUserForm;
+    this.selectedService = serviceForm;
     this.loading = true;
     if (this.online) {
-      this.gameLibrayService.getGames(this.bggUser).subscribe(receivedGames => this.onReceiveData(receivedGames));
+      this.gameLibrayService.getGames(this.bggUser, this.selectedService).subscribe(receivedGames => this.onReceiveData(receivedGames));
     } else {
       this.gameLibrayService.getGamesFromFile().subscribe(receivedGames => this.onReceiveData(receivedGames));
     }

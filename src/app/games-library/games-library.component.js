@@ -14,6 +14,10 @@ var games_library_service_1 = require("./games-library.service");
 var GamesLibraryComponent = (function () {
     function GamesLibraryComponent(gameLibrayService) {
         this.gameLibrayService = gameLibrayService;
+        this.availableServices = [
+            { value: 'https://my-games-services.herokuapp.com', viewValue: 'Heroku' },
+            { value: 'http://localhost:8080/my-games-services', viewValue: 'Local' }
+        ];
     }
     GamesLibraryComponent.prototype.ngOnInit = function () {
         this.loading = false;
@@ -23,14 +27,16 @@ var GamesLibraryComponent = (function () {
         this.bggUser = "fredericdib";
         this.online = false;
         this.defaultPlayerCountFilter = 4;
-        this.reloadCollection(this.bggUser);
+        this.selectedService = 'https://my-games-services.herokuapp.com';
+        this.reloadCollection(this.bggUser, null);
     };
-    GamesLibraryComponent.prototype.reloadCollection = function (bggUserForm) {
+    GamesLibraryComponent.prototype.reloadCollection = function (bggUserForm, serviceForm) {
         var _this = this;
         this.bggUser = bggUserForm;
+        this.selectedService = serviceForm;
         this.loading = true;
         if (this.online) {
-            this.gameLibrayService.getGames(this.bggUser).subscribe(function (receivedGames) { return _this.onReceiveData(receivedGames); });
+            this.gameLibrayService.getGames(this.bggUser, this.selectedService).subscribe(function (receivedGames) { return _this.onReceiveData(receivedGames); });
         }
         else {
             this.gameLibrayService.getGamesFromFile().subscribe(function (receivedGames) { return _this.onReceiveData(receivedGames); });

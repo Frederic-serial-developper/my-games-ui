@@ -1,11 +1,18 @@
 <div>
     <div>
-        <md-slide-toggle
-          [(ngModel)]="online">
-        Online
-      </md-slide-toggle>
-        <form *ngIf="online" #bggUserForm="ngForm" (ngSubmit)="reloadCollection(bggUserForm.value.bggUser)">
+        <md-slide-toggle [(ngModel)]="online">
+            Online
+        </md-slide-toggle>
+        <form *ngIf="online" #bggUserForm="ngForm" (ngSubmit)="reloadCollection(bggUserForm.value.bggUser, bggUserForm.value.service)">
+            <!-- bgg user -->
             <input type="text" id="bggUser" [ngModel]="bggUser" name="bggUser">
+            <!-- service selection -->
+            <md-select placeholder="Service to use" [(ngModel)]="selectedService" name="service">
+                <md-option *ngFor="let service of availableServices" [value]="service.value">
+                    {{service.viewValue}}
+                </md-option>
+            </md-select>
+            <!-- form validation button -->
             <button type="submit" class="btn btn-success">Reload</button>
         </form>
     </div>

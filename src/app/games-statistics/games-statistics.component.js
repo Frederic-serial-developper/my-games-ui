@@ -14,23 +14,28 @@ var games_statistics_service_1 = require("./games-statistics.service");
 var GamesStatisticsComponent = (function () {
     function GamesStatisticsComponent(statsService) {
         this.statsService = statsService;
+        this.availableServices = [
+            { value: 'https://my-games-services.herokuapp.com', viewValue: 'Heroku' },
+            { value: 'http://localhost:8080/my-games-services', viewValue: 'Local' }
+        ];
     }
     GamesStatisticsComponent.prototype.ngOnInit = function () {
         this.loading = false;
         this.bggUser = "fredericdib";
         this.online = false;
-        this.reloadStatistics(this.bggUser);
+        this.reloadStatistics(this.bggUser, null);
     };
     GamesStatisticsComponent.prototype.onReceiveData = function (receivedStats) {
         this.stats = receivedStats;
         this.loading = false;
     };
-    GamesStatisticsComponent.prototype.reloadStatistics = function (bggUserForm) {
+    GamesStatisticsComponent.prototype.reloadStatistics = function (bggUserForm, serviceForm) {
         var _this = this;
         this.bggUser = bggUserForm;
+        this.selectedService = serviceForm;
         this.loading = true;
         if (this.online) {
-            this.statsService.getCollectionStatistics(this.bggUser).subscribe(function (receivedStats) { return _this.onReceiveData(receivedStats); });
+            this.statsService.getCollectionStatistics(this.bggUser, this.selectedService).subscribe(function (receivedStats) { return _this.onReceiveData(receivedStats); });
         }
         else {
             this.statsService.getCollectionStatisticsFromFile().subscribe(function (receivedStats) { return _this.onReceiveData(receivedStats); });

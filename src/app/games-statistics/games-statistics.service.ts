@@ -15,8 +15,8 @@ export class CollectionStatisticsService {
         }).catch(this.handleError);
     }
 
-    getCollectionStatistics(bggUser: string): Observable<CollectionStatistics> {
-        return this.http.get("http://localhost:8080/my-games-services/bgg/collection/" + bggUser + "/stats?includeExpansions=false").map((response: Response) => {
+    getCollectionStatistics(bggUser: string, service: string): Observable<CollectionStatistics> {
+        return this.http.get(service + "/bgg/collection/" + bggUser + "/stats?includeExpansions=false").map((response: Response) => {
             return <CollectionStatistics>response.json();
         }).catch(this.handleError);
     }

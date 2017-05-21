@@ -13,7 +13,7 @@ import { ChartsModule } from 'ng2-charts';
 // material2
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
-  MdButtonModule, MdCheckboxModule, MdSliderModule,
+  MdButtonModule, MdCheckboxModule, MdSliderModule, MdSelectModule,
   MdTooltipModule, MdProgressSpinnerModule, MdSlideToggleModule
 } from '@angular/material';
 import 'hammerjs';
@@ -52,7 +52,7 @@ import { CollectionStatisticsService } from './games-statistics/games-statistics
       },
     ]),
     BrowserAnimationsModule,
-    MdButtonModule, MdCheckboxModule, MdSliderModule,
+    MdButtonModule, MdCheckboxModule, MdSliderModule, MdSelectModule,
     MdTooltipModule, MdProgressSpinnerModule, MdSlideToggleModule,
     ChartsModule],
   declarations: [AppComponent,
