@@ -32,6 +32,8 @@ var games_statistics_ranking_component_1 = require("./games-statistics/games-sta
 var games_statistics_year_component_1 = require("./games-statistics/games-statistics-year.component");
 var games_statistics_global_component_1 = require("./games-statistics/games-statistics-global.component");
 var games_statistics_service_1 = require("./games-statistics/games-statistics.service");
+// menu component
+var online_menu_component_1 = require("./online-menu/online-menu.component");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -69,7 +71,8 @@ AppModule = __decorate([
             games_statistics_component_1.GamesStatisticsComponent,
             games_statistics_ranking_component_1.GamesStatisticsRankingComponent,
             games_statistics_global_component_1.GamesStatisticsGlobalComponent,
-            games_statistics_year_component_1.GamesStatisticsYearComponent],
+            games_statistics_year_component_1.GamesStatisticsYearComponent,
+            online_menu_component_1.OnlineMenuComponent],
         bootstrap: [app_component_1.AppComponent],
         providers: [games_library_service_1.GameLibraryService, games_statistics_service_1.CollectionStatisticsService]
     })

@@ -3,36 +3,23 @@ import { Component, OnInit } from '@angular/core';
 import { CollectionStatistics } from '../model/collectionStatistics';
 import { CollectionStatisticsService } from './games-statistics.service';
 
+import { OnlineMenuParameters } from '../online-menu/onlineMenuParameters';
+
 @Component({
   selector: 'games-statistics',
   templateUrl: 'app/games-statistics/games-statistics.component.html'
 })
 export class GamesStatisticsComponent implements OnInit {
-  private bggUser: string;
-
   private stats: CollectionStatistics;
 
   private loading: boolean;
-  private includePreviouslyOwned: boolean;
-
-  private online: boolean;
-  private includeExpansion: boolean;
-  private selectedService: string;
-  private availableServices = [
-    { value: 'https://my-games-services.herokuapp.com', viewValue: 'Heroku' },
-    { value: 'http://localhost:8080/my-games-services', viewValue: 'Local' }
-  ];
 
   constructor(private statsService: CollectionStatisticsService) {
   }
 
   ngOnInit(): void {
     this.loading = false;
-    this.includeExpansion = true;
-    this.includePreviouslyOwned = false;
-    this.bggUser = "fredericdib";
-    this.online = false;
-    this.reloadStatistics(this.bggUser, null);
+    this.reload(null);
   }
 
   onReceiveData(receivedStats: CollectionStatistics) {
@@ -40,12 +27,10 @@ export class GamesStatisticsComponent implements OnInit {
     this.loading = false;
   }
 
-  reloadStatistics(bggUserForm: string, serviceForm: any): void {
-    this.bggUser = bggUserForm;
-    this.selectedService = serviceForm;
+  reload(parameter: OnlineMenuParameters): void {
     this.loading = true;
-    if (this.online) {
-      this.statsService.getCollectionStatistics(this.bggUser, this.selectedService, this.includeExpansion, this.includePreviouslyOwned).subscribe(receivedStats => this.onReceiveData(receivedStats));
+    if (parameter && parameter.bggUser && parameter.service) {
+      this.statsService.getCollectionStatistics(parameter.bggUser, parameter.service, parameter.includeExpansion, parameter.includePreviouslyOwned).subscribe(receivedStats => this.onReceiveData(receivedStats));
     } else {
       this.statsService.getCollectionStatisticsFromFile().subscribe(receivedStats => this.onReceiveData(receivedStats));
     }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Game } from '../model/game';
+import { OnlineMenuParameters } from '../online-menu/onlineMenuParameters';
 
 import { GameLibraryService } from './games-library.service';
 
@@ -9,21 +10,10 @@ import { GameLibraryService } from './games-library.service';
   templateUrl: 'app/games-library/games-library.component.html'
 })
 export class GamesLibraryComponent implements OnInit {
-  private bggUser: string;
   private games: Game[];
   private displayedGames: Game[];
 
   private loading: boolean;
-
-  private includeExpansion: boolean;
-  private includePreviouslyOwned: boolean;
-
-  private online: boolean;
-  private selectedService: string;
-  private availableServices = [
-    { value: 'https://my-games-services.herokuapp.com', viewValue: 'Heroku' },
-    { value: 'http://localhost:8080/my-games-services', viewValue: 'Local' }
-  ];
 
   private ratingOrderAsc: number;
   private nameOrderAsc: number;
@@ -38,26 +28,19 @@ export class GamesLibraryComponent implements OnInit {
 
   ngOnInit(): void {
     this.loading = false;
-    this.includeExpansion = true;
-    this.includePreviouslyOwned = false;
     this.ratingOrderAsc = 1;
     this.nameOrderAsc = -1;
     this.playsOrderAsc = 1;
-    this.bggUser = "fredericdib";
-    this.online = false;
     this.defaultPlayerCountFilter = 4;
 
-    this.selectedService = 'https://my-games-services.herokuapp.com';
-    
-    this.reloadCollection(this.bggUser, null);
+    this.reload(null);
   }
 
-  reloadCollection(bggUserForm: string, serviceForm: any): void {
-    this.bggUser = bggUserForm;
-    this.selectedService = serviceForm;
+    reload(parameter: OnlineMenuParameters): void {
     this.loading = true;
-    if (this.online) {
-      this.gameLibrayService.getGames(this.bggUser, this.selectedService, this.includeExpansion, this.includePreviouslyOwned).subscribe(receivedGames => this.onReceiveData(receivedGames));
+    
+    if (parameter && parameter.bggUser && parameter.service) {
+      this.gameLibrayService.getGames(parameter.bggUser, parameter.service, parameter.includeExpansion, parameter.includePreviouslyOwned).subscribe(receivedGames => this.onReceiveData(receivedGames));
     } else {
       this.gameLibrayService.getGamesFromFile().subscribe(receivedGames => this.onReceiveData(receivedGames));
     }

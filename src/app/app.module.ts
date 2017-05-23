@@ -31,6 +31,8 @@ import { GamesStatisticsRankingComponent } from './games-statistics/games-statis
 import { GamesStatisticsYearComponent } from './games-statistics/games-statistics-year.component';
 import { GamesStatisticsGlobalComponent } from './games-statistics/games-statistics-global.component';
 import { CollectionStatisticsService } from './games-statistics/games-statistics.service';
+// menu component
+import { OnlineMenuComponent } from './online-menu/online-menu.component';
 
 @NgModule({
   imports: [BrowserModule,
@@ -63,7 +65,8 @@ import { CollectionStatisticsService } from './games-statistics/games-statistics
     GamesStatisticsComponent,
     GamesStatisticsRankingComponent,
     GamesStatisticsGlobalComponent,
-    GamesStatisticsYearComponent],
+    GamesStatisticsYearComponent,
+    OnlineMenuComponent],
   bootstrap: [AppComponent],
   providers: [GameLibraryService, CollectionStatisticsService]
 })
