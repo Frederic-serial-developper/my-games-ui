@@ -18,6 +18,9 @@ import {
 } from '@angular/material';
 import 'hammerjs';
 
+// flex layout
+import { FlexLayoutModule } from "@angular/flex-layout";
+
 // app
 import { AppComponent } from './app.component';
 // app components & services for library
@@ -57,7 +60,7 @@ import { OnlineMenuComponent } from './online-menu/online-menu.component';
     BrowserAnimationsModule,
     MdButtonModule, MdCheckboxModule, MdSliderModule, MdSelectModule,
     MdTooltipModule, MdProgressSpinnerModule, MdSlideToggleModule,
-    ChartsModule],
+    ChartsModule, FlexLayoutModule],
   declarations: [AppComponent,
     GamesLibraryComponent,
     GamesLibraryThumbnailComponent,

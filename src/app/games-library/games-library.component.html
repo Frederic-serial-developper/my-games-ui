@@ -1,12 +1,10 @@
 <div>
-    <div>
-        <online-menu (reloadAction)="reload($event)"></online-menu>
-    </div>
+    <online-menu (reloadAction)="reload($event)"></online-menu>
     <div *ngIf="loading">
         <md-spinner></md-spinner>
     </div>
     <div *ngIf="!loading">
-        <div class="btn-group library-btn" data-toggle="buttons">
+        <div fxLayoutWrap class="btn-group library-btn" data-toggle="buttons">
             <button md-button (click)="sortByName()">Sort by name</button>
             <button md-button (click)="sortByRating()">Sort by rating</button>
             <button md-button (click)="sortByPlays()">Sort by plays</button>
@@ -17,7 +15,7 @@
             </div>
         </div>
 
-        <div class="library-container">
+        <div fxLayoutWrap>
             <div *ngFor="let game of displayedGames" (click)="onSelect(game)">
                 <games-library-thumbnail [game]="game"></games-library-thumbnail>
             </div>

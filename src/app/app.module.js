@@ -19,6 +19,8 @@ var ng2_charts_1 = require("ng2-charts");
 var animations_1 = require("@angular/platform-browser/animations");
 var material_1 = require("@angular/material");
 require("hammerjs");
+// flex layout
+var flex_layout_1 = require("@angular/flex-layout");
 // app
 var app_component_1 = require("./app.component");
 // app components & services for library
@@ -63,7 +65,7 @@ AppModule = __decorate([
             animations_1.BrowserAnimationsModule,
             material_1.MdButtonModule, material_1.MdCheckboxModule, material_1.MdSliderModule, material_1.MdSelectModule,
             material_1.MdTooltipModule, material_1.MdProgressSpinnerModule, material_1.MdSlideToggleModule,
-            ng2_charts_1.ChartsModule],
+            ng2_charts_1.ChartsModule, flex_layout_1.FlexLayoutModule],
         declarations: [app_component_1.AppComponent,
             games_library_component_1.GamesLibraryComponent,
             games_library_thumbnail_component_1.GamesLibraryThumbnailComponent,

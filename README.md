@@ -6,6 +6,7 @@ Managing my games library. Angular 2 implementation.
 * https://material.angular.io
 * https://ng-bootstrap.github.io/#/home
 * https://valor-software.com/ng2-charts
+* https://github.com/angular/flex-layout
 
 
 # installation

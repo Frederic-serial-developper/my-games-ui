@@ -33,6 +33,8 @@
       'hammerjs': 'npm:hammerjs/hammer.js',
       // ng2-charts
       'ng2-charts': 'node_modules/ng2-charts/bundles/ng2-charts.umd.js',
+      // flex layout
+      '@angular/flex-layout' : 'npm:@angular/flex-layout/bundles/flex-layout.umd.js',
       // other libraries
       'rxjs':                      'npm:rxjs',
       'angular-in-memory-web-api': 'npm:angular-in-memory-web-api/bundles/in-memory-web-api.umd.js'
