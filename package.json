@@ -20,6 +20,10 @@
     "test:once": "karma start karma.conf.js --single-run",
     "lint": "tslint ./src/**/*.ts -t verbose"
   },
+  "engines" : { 
+    "node" : "6.10.2",
+    "npm" : "4.5.0"
+  },
   "keywords": [],
   "author": "Frederic Dib",
   "license": "MIT",
