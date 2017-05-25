@@ -5,9 +5,18 @@
     </div>
     <div *ngIf="!loading">
         <div fxLayoutWrap class="btn-group library-btn" data-toggle="buttons">
-            <button md-button (click)="sortByName()">Sort by name</button>
-            <button md-button (click)="sortByRating()">Sort by rating</button>
-            <button md-button (click)="sortByPlays()">Sort by plays</button>
+            <button md-icon-button (click)="sortByName()" data-toggle="tooltip" title="Sort by name">
+                <span *ngIf="nameOrderAsc == 1" class="button-icon glyphicon glyphicon-sort-by-alphabet" aria-hidden="true"></span>
+                <span *ngIf="nameOrderAsc == -1" class="button-icon glyphicon glyphicon-sort-by-alphabet-alt" aria-hidden="true"></span>
+            </button>
+            <button md-icon-button (click)="sortByRating()" data-toggle="tooltip" title="Sort by rating">
+                <span *ngIf="ratingOrderAsc == -1" class="button-icon glyphicon glyphicon-sort-by-order" aria-hidden="true"></span>
+                <span *ngIf="ratingOrderAsc == 1" class="button-icon glyphicon glyphicon-sort-by-order-alt" aria-hidden="true"></span>
+            </button>
+            <button md-icon-button (click)="sortByPlays()" data-toggle="tooltip" title="Sort by plays">
+                <span *ngIf="playsOrderAsc == -1" class="button-icon glyphicon glyphicon-sort-by-attributes" aria-hidden="true"></span>
+                <span *ngIf="playsOrderAsc == 1" class="button-icon glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span>
+            </button>
             <div mdTooltip="Players count" mdTooltipPosition="right">
                 <md-slider [min]="1" [max]="10" [step]="1" [thumb-label]="true" [tick-interval]="1" [value]="defaultPlayerCountFilter" displayValue="XXX"
                     (input)="onSliderPlayerCountEvent($event)">

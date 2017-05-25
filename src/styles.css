@@ -28,6 +28,10 @@ h1 {
   margin-left: 10px;
 }
 
+.button-icon {
+    font-size: 20px;
+}
+
 .library-thumbnail {
   margin: 4px;
 }
