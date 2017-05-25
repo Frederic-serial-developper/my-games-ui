@@ -14,7 +14,8 @@ import { ChartsModule } from 'ng2-charts';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   MdButtonModule, MdCheckboxModule, MdSliderModule, MdSelectModule,
-  MdTooltipModule, MdProgressSpinnerModule, MdSlideToggleModule
+  MdTooltipModule, MdProgressSpinnerModule, MdSlideToggleModule,
+  MdToolbarModule
 } from '@angular/material';
 import 'hammerjs';
 
@@ -60,7 +61,7 @@ import { OnlineMenuComponent } from './online-menu/online-menu.component';
     BrowserAnimationsModule,
     MdButtonModule, MdCheckboxModule, MdSliderModule, MdSelectModule,
     MdTooltipModule, MdProgressSpinnerModule, MdSlideToggleModule,
-    ChartsModule, FlexLayoutModule],
+    ChartsModule, FlexLayoutModule, MdToolbarModule],
   declarations: [AppComponent,
     GamesLibraryComponent,
     GamesLibraryThumbnailComponent,
