@@ -20,9 +20,9 @@
     "test:once": "karma start karma.conf.js --single-run",
     "lint": "tslint ./src/**/*.ts -t verbose"
   },
-  "engines" : { 
-    "node" : "6.10.2",
-    "npm" : "4.5.0"
+  "engines": {
+    "node": "6.10.2",
+    "npm": "4.5.0"
   },
   "keywords": [],
   "author": "Frederic Dib",
@@ -33,6 +33,7 @@
     "@angular/compiler": "^4.1.1",
     "@angular/compiler-cli": "^4.1.1",
     "@angular/core": "^4.1.1",
+    "@angular/flex-layout": "^2.0.0-beta.8",
     "@angular/forms": "^4.1.1",
     "@angular/http": "^4.1.1",
     "@angular/material": "^2.0.0-beta.3",
