@@ -28,25 +28,12 @@ h1 {
   margin-left: 10px;
 }
 
-.library-container{
-  width: 1400px;
-  display:flex;
-  flex-flow: row wrap;
-}
-
 .library-thumbnail {
-  width: auto;
-  height: auto;
   margin: 4px;
-  flex: 0 1 calc(20% - 8px);
-  flex-basis: 20%;
 }
 
 .game-details {
-  margin-top: 15px;
-  font-size: 14px;
-  line-height: 5px;
-  font-style: italic;
+  margin: 4px;
   width: 200px;
 }
 

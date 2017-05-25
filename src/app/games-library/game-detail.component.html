@@ -1,12 +1,19 @@
 <div *ngIf="game">
-    <p>
-        {{game.name}} ({{game.year}})
-        <span *ngIf="game.type === EXPANSION"> / Expansion</span>
-    </p>
-    <p>
-        {{game.minPlayers}}-{{game.maxPlayers}} players
-    </p>
-    <p>
-        {{game.playingTime}} minutes
-    </p>
+    <img [src]="game.image" height="100px" width="100px">
+
+    <div>
+        <b>{{game.name}} ({{game.year}})</b>
+    </div>
+    <div>
+        <span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{game.minPlayers}}-{{game.maxPlayers}}
+    </div>
+    <div>
+        <span class="glyphicon glyphicon-hourglass" aria-hidden="true"></span> {{game.playingTime}} min
+    </div>
+    <div>
+        <span class="glyphicon glyphicon-star" aria-hidden="true"></span> {{game.rating| number:'1.1-1'}}/10
+    </div>
+    <div>
+        <span class="glyphicon glyphicon-knight" aria-hidden="true"></span> {{game.playsCount}} play(s)
+    </div>
 </div>

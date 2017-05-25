@@ -1,5 +1,5 @@
 <div class="col-sm-6 col-md-4">
-    <div class="library-thumbnail">
+    <div class="library-thumbnail" *ngIf="!displayDetails">
         <img [src]="game.image" height="200px" width="200px" (click)="onClickImage()">
         <div class="caption">
             <ngb-rating [(rate)]="game.rating" [readonly]="true"></ngb-rating>
@@ -8,7 +8,7 @@
         </div>
     </div>
 
-    <div class="game-details" *ngIf="displayDetails">
+    <div class="game-details" *ngIf="displayDetails" (click)="onClickImage()">
         <game-detail [game]="game"></game-detail>
     </div>
 </div>
