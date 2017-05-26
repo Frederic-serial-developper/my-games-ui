@@ -16,4 +16,11 @@
     <div>
         <span class="glyphicon glyphicon-knight" aria-hidden="true"></span> {{game.playsCount}} play(s)
     </div>
+    <div>
+         <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+        <span *ngIf="game.type === 'EXPANSION'">Expansion </span>
+        <span *ngIf="game.type === 'GAME'">Game </span>
+        <span *ngIf="game.status === 'OWNED'"> owned</span>
+        <span *ngIf="game.status === 'PREVIOUSLY_OWNED'">previously owned</span>
+    </div>
 </div>

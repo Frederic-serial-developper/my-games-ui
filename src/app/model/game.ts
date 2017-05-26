@@ -5,6 +5,7 @@ export class Game {
   name: string;
   type: string;
   source: string;
+  status: string;
   rating: number;
   image: string;
   playsCount: number;
