@@ -12,5 +12,6 @@ Managing my games library. Angular 2 implementation.
 # installation
 Be sure to have npm and NodeJs installed
 Run following commands:
+* npm install typescript -g
 * npm install
 * npm start
